@@ -1,0 +1,14 @@
+=== Category: Fitness Gear ===
+headlines: "Boost Your Workout", "Fitness Gear for Every Home"
+meta: "Top-quality fitness equipment to stay in shape"
+pdp: "https://example.com/fitness-product"
+
+=== Category: Skin Care ===
+headlines: "Glow Naturally", "Essential Skin Care Products"
+meta: "Premium skin care for healthy, radiant skin"
+pdp: "https://example.com/skin-product"
+
+=== Category: Home Decor ===
+headlines: "Stylish Home Decor", "Upgrade Your Living Space"
+meta: "Trending and affordable home decor items"
+pdp: "https://example.com/home-decor"

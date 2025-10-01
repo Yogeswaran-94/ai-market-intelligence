@@ -1,0 +1,211 @@
+{
+  "summary": {
+    "opportunity_score": {
+      "mean": 4771.767517857416,
+      "std": 6874.367311013257
+    },
+    "roas": {
+      "mean": 6.831651257351638,
+      "std": 8.206863263116194
+    },
+    "cac_usd": {
+      "mean": 6.075808292104236,
+      "std": 9.215069650036938
+    },
+    "ltv_per_install": {
+      "mean": 11.388746498418264,
+      "std": 21.899118081355205
+    },
+    "repeat_rate": {
+      "mean": 1.6014117552864031,
+      "std": 2.3952837132227947
+    }
+  },
+  "categories": {
+    "Fitness Gear": {
+      "metrics": {
+        "monthly_search_volume": 281338.0,
+        "avg_position": 24.380000000000003,
+        "conversion_rate": 2.369,
+        "opportunity_score": 80415.39345988455,
+        "total_spend_usd": 10515.44,
+        "total_revenue_usd": 28270.03
+      },
+      "confidence": {
+        "opportunity_score": {
+          "value": 8041.539345988455,
+          "z": 0.47564694759510695,
+          "confidence": 0.54
+        },
+        "roas": {
+          "value": 4.229701982569062,
+          "z": -0.3170455253563711,
+          "confidence": 0.53
+        },
+        "cac_usd": {
+          "value": 7.2722553514627535,
+          "z": 0.12983592146302675,
+          "confidence": 0.51
+        },
+        "ltv_per_install": {
+          "value": 5.632362545441833,
+          "z": -0.2628591677341284,
+          "confidence": 0.52
+        },
+        "repeat_rate": {
+          "value": 2.8775477696885003,
+          "z": 0.5327702966280716,
+          "confidence": 0.54
+        }
+      }
+    },
+    "Skin Care": {
+      "metrics": {
+        "monthly_search_volume": 216472.0,
+        "avg_position": 26.825,
+        "conversion_rate": 3.46125,
+        "opportunity_score": 47523.34220526008,
+        "total_spend_usd": 7650.759999999999,
+        "total_revenue_usd": 39096.92
+      },
+      "confidence": {
+        "opportunity_score": {
+          "value": 5940.41777565751,
+          "z": 0.17000113682139553,
+          "confidence": 0.51
+        },
+        "roas": {
+          "value": 5.266813626065937,
+          "z": -0.19067426629592985,
+          "confidence": 0.52
+        },
+        "cac_usd": {
+          "value": 10.361188442858946,
+          "z": 0.46504045151058976,
+          "confidence": 0.54
+        },
+        "ltv_per_install": {
+          "value": 7.166703526149998,
+          "z": -0.19279511424082832,
+          "confidence": 0.52
+        },
+        "repeat_rate": {
+          "value": 1.4465735224037042,
+          "z": -0.06464296151138102,
+          "confidence": 0.51
+        }
+      }
+    },
+    "Home Decor": {
+      "metrics": {
+        "monthly_search_volume": 314956.0,
+        "avg_position": 27.0,
+        "conversion_rate": 2.488,
+        "opportunity_score": 46155.21917860517,
+        "total_spend_usd": 11344.699999999999,
+        "total_revenue_usd": 64638.229999999996
+      },
+      "confidence": {
+        "opportunity_score": {
+          "value": 4615.521917860517,
+          "z": -0.02272872439425552,
+          "confidence": 0.5
+        },
+        "roas": {
+          "value": 11.474703985901403,
+          "z": 0.56575241717708,
+          "confidence": 0.55
+        },
+        "cac_usd": {
+          "value": 5.763682930611483,
+          "z": -0.033871188536431944,
+          "confidence": 0.5
+        },
+        "ltv_per_install": {
+          "value": 6.804708801080713,
+          "z": -0.20932521941330492,
+          "confidence": 0.52
+        },
+        "repeat_rate": {
+          "value": 1.7707448080885555,
+          "z": 0.07069436153528509,
+          "confidence": 0.51
+        }
+      }
+    },
+    "Astrology Services": {
+      "metrics": {
+        "monthly_search_volume": 256471.0,
+        "avg_position": 28.97,
+        "conversion_rate": 2.5789999999999997,
+        "opportunity_score": 32814.580925841874,
+        "total_spend_usd": 8484.88,
+        "total_revenue_usd": 42667.990000000005
+      },
+      "confidence": {
+        "opportunity_score": {
+          "value": 3281.4580925841874,
+          "z": -0.21679223088438124,
+          "confidence": 0.52
+        },
+        "roas": {
+          "value": 8.808989600995888,
+          "z": 0.24093716201303486,
+          "confidence": 0.52
+        },
+        "cac_usd": {
+          "value": 2.2146473648409613,
+          "z": -0.41900507254959246,
+          "confidence": 0.53
+        },
+        "ltv_per_install": {
+          "value": 11.662386125903064,
+          "z": 0.012495463354653298,
+          "confidence": 0.5
+        },
+        "repeat_rate": {
+          "value": 0.7848096920257884,
+          "z": -0.34092080982001793,
+          "confidence": 0.53
+        }
+      }
+    },
+    "Supplements": {
+      "metrics": {
+        "monthly_search_volume": 297737.0,
+        "avg_position": 27.900000000000002,
+        "conversion_rate": 2.2416666666666667,
+        "opportunity_score": 31679.84012327913,
+        "total_spend_usd": 15568.86,
+        "total_revenue_usd": 57603.02
+      },
+      "confidence": {
+        "opportunity_score": {
+          "value": 2639.9866769399273,
+          "z": -0.3101057514779891,
+          "confidence": 0.53
+        },
+        "roas": {
+          "value": 4.526174847032571,
+          "z": -0.2809205339975,
+          "confidence": 0.52
+        },
+        "cac_usd": {
+          "value": 5.699587549432356,
+          "z": -0.04082668465456171,
+          "confidence": 0.5
+        },
+        "ltv_per_install": {
+          "value": 22.592426832288094,
+          "z": 0.5116041793212022,
+          "confidence": 0.54
+        },
+        "repeat_rate": {
+          "value": 1.1805814072551715,
+          "z": -0.17569123261186245,
+          "confidence": 0.51
+        }
+      }
+    }
+  }
+}
