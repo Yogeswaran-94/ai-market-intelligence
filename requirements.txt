@@ -1,0 +1,22 @@
+# Data handling
+pandas==2.1.0
+numpy==1.27.0
+openpyxl==3.1.2
+
+# API & environment
+requests==2.32.0
+python-dotenv==1.0.1
+
+# PDF & report generation
+markdown==3.5.3
+fpdf==2.6.2
+jinja2==3.1.2
+
+# Streamlit dashboard
+streamlit==1.26.0
+
+# Optional (if using LLMs like OpenAI)
+openai==0.29.1
+
+# Utilities
+tqdm==4.67.0
