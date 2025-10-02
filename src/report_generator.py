@@ -1,75 +1,61 @@
 # src/report_generator.py
-import os
 import pandas as pd
-import json
 import matplotlib.pyplot as plt
-from fpdf import FPDF
+import os
 
-# Paths
-COMBINED_CSV = os.path.join("data", "combined_apps.csv")
-INSIGHTS_JSON = os.path.join("outputs", "insights.json")
-REPORT_MD = os.path.join("outputs", "executive_report.md")
-REPORT_PDF = os.path.join("outputs", "executive_report.pdf")
+# ---------------- CONFIG ----------------
+UNIFIED_CSV = os.path.join("data", "apps_unified.csv")
+OUTPUT_DIR = "outputs"
+REPORT_MD = os.path.join(OUTPUT_DIR, "executive_report.md")
+REPORT_PDF = os.path.join(OUTPUT_DIR, "executive_report.pdf")
 
-# Load data
-df = pd.read_csv(COMBINED_CSV)
-with open(INSIGHTS_JSON, "r") as f:
-    insights = json.load(f)
+# Ensure outputs folder exists
+os.makedirs(OUTPUT_DIR, exist_ok=True)
 
-# Create basic charts
-os.makedirs("outputs", exist_ok=True)
+# ---------------- LOAD DATA ----------------
+try:
+    df = pd.read_csv(UNIFIED_CSV)
+    print(f"✅ Loaded data from {UNIFIED_CSV}, total rows: {len(df)}")
+except FileNotFoundError:
+    print(f"❌ File not found: {UNIFIED_CSV}. Make sure the CSV exists in the data folder.")
+    exit()
+except Exception as e:
+    print(f"❌ Error reading CSV: {e}")
+    exit()
 
-# 1. Top 10 Categories by App Count
-category_counts = df['Category'].value_counts().head(10)
-plt.figure(figsize=(8,5))
-category_counts.plot(kind='bar')
-plt.title("Top 10 App Categories by Count")
-plt.ylabel("Number of Apps")
-plt.tight_layout()
-plt.savefig("outputs/category_chart.png")
-plt.close()
+# ---------------- GENERATE SUMMARY ----------------
+summary = f"# Executive Report\n\nTotal apps: {len(df)}\n\n"
 
-# 2. Free vs Paid Apps
-type_counts = df['Type'].value_counts()
-plt.figure(figsize=(6,4))
-type_counts.plot(kind='pie', autopct='%1.1f%%', startangle=90)
-plt.title("Free vs Paid Apps")
-plt.tight_layout()
-plt.savefig("outputs/type_chart.png")
-plt.close()
+if 'Category' in df.columns:
+    summary += "## Top 10 Category distribution\n\n"
+    cat_counts = df['Category'].value_counts().head(10)
+    summary += cat_counts.to_markdown() + "\n"
+else:
+    print("⚠️ Column 'Category' not found in CSV")
+    cat_counts = pd.Series(dtype=int)
 
-# Generate Markdown Report
-with open(REPORT_MD, "w") as f:
-    f.write("# AI-Powered Market Intelligence Report\n\n")
-    f.write("## Dataset Summary\n")
-    f.write(f"- Total Apps: {len(df)}\n")
-    f.write(f"- Categories: {df['Category'].nunique()}\n")
-    f.write(f"- Platforms: {df['Platform'].unique().tolist()}\n\n")
-    f.write("## Charts\n")
-    f.write("![Category Chart](category_chart.png)\n")
-    f.write("![Free vs Paid](type_chart.png)\n\n")
-    f.write("## AI Insights\n")
-    for i, item in enumerate(insights, 1):
-        f.write(f"### Insight {i}\n")
-        f.write(f"- **Insight:** {item['insight']}\n")
-        f.write(f"- **Confidence:** {item['confidence']}\n")
-        f.write(f"- **Recommendation:** {item['recommendation']}\n\n")
+# ---------------- SAVE MARKDOWN ----------------
+try:
+    with open(REPORT_MD, "w", encoding="utf-8") as f:
+        f.write(summary)
+    print(f"✅ Markdown report saved at {REPORT_MD}")
+except Exception as e:
+    print(f"❌ Failed to save markdown report: {e}")
 
-print(f"✅ Markdown report saved at {REPORT_MD}")
-
-# Convert Markdown to PDF (simple)
-pdf = FPDF()
-pdf.set_auto_page_break(auto=True, margin=15)
-pdf.add_page()
-pdf.set_font("Arial", 'B', 16)
-pdf.multi_cell(0, 10, "AI-Powered Market Intelligence Report\n\n")
-
-pdf.set_font("Arial", '', 12)
-pdf.multi_cell(0, 8, f"Dataset Summary:\n- Total Apps: {len(df)}\n- Categories: {df['Category'].nunique()}\n- Platforms: {df['Platform'].unique().tolist()}\n\n")
-
-pdf.multi_cell(0, 8, "AI Insights:\n")
-for i, item in enumerate(insights, 1):
-    pdf.multi_cell(0, 8, f"{i}. Insight: {item['insight']}\n   Confidence: {item['confidence']}\n   Recommendation: {item['recommendation']}\n")
-
-pdf.output(REPORT_PDF)
-print(f"✅ PDF report saved at {REPORT_PDF}")
+# ---------------- GENERATE PDF PLOT ----------------
+if not cat_counts.empty:
+    try:
+        fig, ax = plt.subplots(figsize=(10,6))
+        cat_counts.plot(kind='bar', ax=ax, color='skyblue')
+        ax.set_title("Top 10 Categories by App Count")
+        ax.set_ylabel("Number of Apps")
+        ax.set_xlabel("Category")
+        plt.xticks(rotation=45, ha='right')
+        plt.tight_layout()
+        plt.savefig(REPORT_PDF)
+        plt.close()
+        print(f"✅ PDF report saved at {REPORT_PDF}")
+    except Exception as e:
+        print(f"❌ Failed to generate PDF report: {e}")
+else:
+    print("⚠️ No category data available to generate PDF plot")

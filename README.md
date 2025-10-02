@@ -97,6 +97,17 @@ Google Play Store Dataset (Kaggle) – Metadata for ~10,000 Android apps
 App Store Scraper API (RapidAPI) – Real-time App Store data
 Synthetic D2C Dataset – Funnel metrics, ad campaign performance, and SEO data
 
+## Recent Improvements (v1.1)
+
+- **Enhanced Error Handling in UI**  
+  Added try-except blocks around data display, plotting, and file loading functions in the Streamlit interface. This ensures the app does not crash if underlying data has unexpected issues.
+
+- **Improved LLM Prompting for Insights**  
+  The AI-generated app insights now use more structured context and few-shot examples to improve consistency and quality. Generated insights are concise, actionable, and confidence-scored.
+
+- **Top 10 Apps Table**  
+  The app now displays a clear Top 10 Apps by Rating table with formatted metrics and download options in Markdown.
+
 ## Outputs
 Cleaned datasets (outputs/d2c_phase5_cleaned.csv, outputs/insights.json)
 Reports (executive_report.md, executive_report.pdf, executive_report_phase5.md)
